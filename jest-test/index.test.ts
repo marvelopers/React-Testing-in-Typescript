@@ -1,4 +1,4 @@
-import { sum, person, toggle } from "./index";
+import { sum, person, toggle, range } from "./index";
 
 describe("test index file", () => {
   it("sums 1+2 to equal 3", () => expect(sum(1, 2)).toBe(3));
@@ -13,4 +13,6 @@ describe("test index file", () => {
     expect(toggle(true)).toBeFalsy();
     expect(toggle(true)).not.toBeTruthy();
   });
+
+  it("has 2", () => expect(range(1, 3)).toContain(2));
 });
