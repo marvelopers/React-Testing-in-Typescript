@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from './Button';
-import ToDoItem from './ToDoItem';
-import ToDoInput from './ToDoInput';
+import Button from '../Button';
+import ToDoItem from '../ToDoItem';
+import ToDoInput from '../ToDoInput';
 import * as S from './styles';
 
 const ToDoList = () => {
@@ -23,9 +23,13 @@ const ToDoList = () => {
           <ToDoInput value={toDo} onChange={handleChange} />
           <Button text={'ADD'} onClick={handleAddToDo} />
         </S.InputWrapper>
-        <S.List>
+        <S.List data-testid="toDoList">
           {toDoList.map(({ id, toDo }) => (
-            <ToDoItem text={toDo} onClick={() => setTodoList((prev) => prev.filter((item) => item.id !== id))} />
+            <ToDoItem
+              key={id}
+              text={toDo}
+              onClick={() => setTodoList((prev) => prev.filter((item) => item.id !== id))}
+            />
           ))}
         </S.List>
       </S.ListWrapper>
