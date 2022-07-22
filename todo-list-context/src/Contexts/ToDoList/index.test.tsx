@@ -25,7 +25,7 @@ describe('ToDoList Context', () => {
   });
 
   it('loads localStorage data and sets it to State', () => {
-    localStorage.setItem('ToDoList', '[{id:1, toDo: "To DO 1"}, {id:2, toDo: "To DO 2"}]');
+    localStorage.setItem('ToDoList', '[{"id":1,"toDo":"ToDo 1"},{"id":2,"toDo":"ToDo 2"}]');
 
     const ChildComponent = () => {
       const { toDoList } = useContext(ToDoListContext);
@@ -33,7 +33,7 @@ describe('ToDoList Context', () => {
       return (
         <div>
           {toDoList.map(({ id, toDo }) => (
-            <div key={id}>{toDo}</div>
+            <div key={toDo}>{toDo}</div>
           ))}
         </div>
       );
@@ -54,7 +54,7 @@ describe('ToDoList Context', () => {
       const { toDoList, addToDo } = useContext(ToDoListContext);
       return (
         <div>
-          <div onClick={() => addToDo('study react 1')}>Add ToDo</div>
+          <div onClick={() => addToDo('study react test')}>ADD</div>
           <div>
             {toDoList.map(({ id, toDo }) => (
               <div key={toDo}>{toDo}</div>
@@ -70,14 +70,14 @@ describe('ToDoList Context', () => {
     );
 
     expect(localStorage.getItem('ToDoList')).toBeNull();
-    const button = screen.getByText('Add ToDo');
+    const button = screen.getByText('ADD');
     fireEvent.click(button);
-    expect(screen.getByText('study react 1')).toBeInTheDocument();
-    expect(localStorage.getItem('ToDoList')).toBe('["study react 1"]');
+    expect(screen.getByText('study react test')).toBeInTheDocument();
+    expect(localStorage.getItem('ToDoList')).toBe('[{"id":1,"toDo":"study react test"}]');
   });
 
   it('uses deleteToDo function', () => {
-    localStorage.setItem('ToDoList', '["ToDo 1", "ToDo 2", "ToDo 3"]');
+    localStorage.setItem('ToDoList', '[{"id":1,"toDo":"ToDo 1"},{"id":2,"toDo":"ToDo 2"}]');
 
     const ChildComponent = () => {
       const { toDoList, deleteItem } = useContext(ToDoListContext);
