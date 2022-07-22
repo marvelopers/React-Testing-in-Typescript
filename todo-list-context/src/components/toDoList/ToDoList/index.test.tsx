@@ -51,4 +51,14 @@ describe('<ToDoList/>', () => {
     expect(toDoItem).not.toBeInTheDocument();
     expect(toDoList.childElementCount).toBe(1);
   });
+
+  it('loads localStorage data', () => {
+    localStorage.setItem('ToDoList', '[{"id":1,"toDo":"ToDo 1"},{"id":2,"toDo":"ToDo 2"},{"id":3,"toDo":"ToDo 3"}]');
+    render(<ToDoList />);
+
+    expect(screen.getByText('ToDo 1')).toBeInTheDocument();
+    expect(screen.getByText('ToDo 2')).toBeInTheDocument();
+    expect(screen.getByText('ToDo 3')).toBeInTheDocument();
+    expect(screen.getAllByText('x').length).toBe(3);
+  });
 });
