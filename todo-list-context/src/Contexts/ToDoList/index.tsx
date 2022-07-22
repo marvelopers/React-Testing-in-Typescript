@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode, useEffect } from "react";
 
 interface Context {
   toDoList: { id: number; toDo: string }[];
@@ -17,15 +17,28 @@ interface ToDoListProviderProps {
 }
 
 const ToDoListProvider = ({ children }: ToDoListProviderProps) => {
-  const [toDoList, setTodoList] = useState<{ id: number; toDo: string }[]>([]);
+  const [toDoList, setToDoList] = useState<{ id: number; toDo: string }[]>([]);
   const addToDo = (toDo: string) => {
     if (toDo) {
-      setTodoList((prev) => [...prev, { id: prev.length + 1, toDo: toDo }]);
+      setToDoList((prev) => [...prev, { id: prev.length + 1, toDo: toDo }]);
     }
   };
 
   const deleteItem = (id: number) =>
-    setTodoList((prev) => prev.filter((item) => item.id !== id));
+    setToDoList((prev) => prev.filter((item) => item.id !== id));
+
+  useEffect(() => {
+    const list = localStorage.getItem("ToDoList");
+    if (list) {
+      setToDoList(JSON.parse(list));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (toDoList) {
+      localStorage.setItem("ToDoList", JSON.stringify(toDoList));
+    }
+  }, [toDoList]);
 
   return (
     <ToDoListContext.Provider value={{ toDoList, addToDo, deleteItem }}>
