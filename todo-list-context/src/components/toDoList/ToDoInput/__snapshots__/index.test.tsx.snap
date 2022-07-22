@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToDoInput /> renders component correctly 1`] = `
+.c2 {
+  padding: 10px 20px;
+  background-color: #304FFE;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #dbf6fd;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: #1E40FF;
+}
+
+.c1 {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  outline: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+}
+
+.c0 input + button {
+  margin-left: 8px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <input
+      class="c1"
+      placeholder="할 일을 입력해 주세요 :)"
+      value=""
+    />
+    <button
+      class="c2"
+    >
+      ADD
+    </button>
+  </div>
+</div>
+`;
