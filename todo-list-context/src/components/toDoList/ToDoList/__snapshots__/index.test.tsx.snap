@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToDoList/> renders component correctly 1`] = `
+.c4 {
+  padding: 10px 20px;
+  background-color: #304FFE;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #dbf6fd;
+  cursor: pointer;
+}
+
+.c4:hover {
+  background-color: #1E40FF;
+}
+
+.c3 {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  outline: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  text-align: center;
+  min-height: 60vh;
+  width: 40vh;
+  margin: auto;
+  padding: 20px 20px;
+  color: white;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  font-size: calc(10px + 1vmin);
+  color: black;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+}
+
+.c2 input + button {
+  margin-left: 8px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  list-style: none;
+}
+
+<div>
+  <main
+    class="c0"
+  >
+    ToDoList
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <input
+          class="c3"
+          placeholder="할 일을 입력해 주세요 :)"
+          value=""
+        />
+        <button
+          class="c4"
+        >
+          ADD
+        </button>
+      </div>
+      <ul
+        class="c5"
+        data-testid="toDoList"
+      />
+    </div>
+  </main>
+</div>
+`;
