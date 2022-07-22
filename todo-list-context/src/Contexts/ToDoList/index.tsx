@@ -35,7 +35,7 @@ const ToDoListProvider = ({ children }: ToDoListProviderProps) => {
   }, []);
 
   useEffect(() => {
-    if (toDoList) {
+    if (toDoList.length > 0) {
       localStorage.setItem("ToDoList", JSON.stringify(toDoList));
     }
   }, [toDoList]);

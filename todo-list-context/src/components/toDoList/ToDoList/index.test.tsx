@@ -51,14 +51,4 @@ describe('<ToDoList/>', () => {
     expect(toDoItem).not.toBeInTheDocument();
     expect(toDoList.childElementCount).toBe(1);
   });
-
-  it('does not add empty ToDo', () => {
-    render(<ToDoList />);
-
-    const addButton = screen.getByText('ADD');
-    fireEvent.click(addButton);
-
-    const toDoList = screen.getByTestId('toDoList');
-    expect(toDoList.firstChild).toBeNull();
-  });
 });
