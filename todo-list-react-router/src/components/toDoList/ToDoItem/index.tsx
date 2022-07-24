@@ -8,9 +8,14 @@ interface ToDoItemProps {
 }
 
 const ToDoItem = ({ text, onClick }: ToDoItemProps) => (
-  <ToDo>
+  <ToDo onClick={onClick}>
     <div>{text}</div>
-    <Button text="x" onClick={onClick} />
+    <Button
+      text="x"
+      onClick={() => {
+        console.log('삭제');
+      }}
+    />
   </ToDo>
 );
 

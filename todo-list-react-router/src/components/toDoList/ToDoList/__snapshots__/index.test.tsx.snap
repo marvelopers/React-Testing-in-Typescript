@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ToDoList/> renders component correctly 1`] = `
-.c4 {
+.c3 {
   padding: 10px 20px;
   background-color: #304FFE;
   border-radius: 8px;
@@ -12,11 +12,11 @@ exports[`<ToDoList/> renders component correctly 1`] = `
   cursor: pointer;
 }
 
-.c4:hover {
+.c3:hover {
   background-color: #1E40FF;
 }
 
-.c3 {
+.c2 {
   width: 100%;
   padding: 10px 10px;
   border-radius: 8px;
@@ -24,20 +24,35 @@ exports[`<ToDoList/> renders component correctly 1`] = `
   outline: none;
 }
 
-.c0 {
+.c1 {
   box-sizing: border-box;
-  text-align: center;
-  min-height: 60vh;
-  width: 40vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
   margin: auto;
-  padding: 20px 20px;
-  color: white;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
 }
 
-.c1 {
+.c1 input + button {
+  margin-left: 8px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  margin: auto;
+  padding: 10px;
+  list-style: none;
+}
+
+.c0 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -59,59 +74,28 @@ exports[`<ToDoList/> renders component correctly 1`] = `
   color: black;
 }
 
-.c2 {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  margin: auto;
-}
-
-.c2 input + button {
-  margin-left: 8px;
-}
-
-.c5 {
-  box-sizing: border-box;
-  width: 100%;
-  margin: auto;
-  padding: 10px;
-  list-style: none;
-}
-
 <div>
-  <main
+  <div
     class="c0"
   >
-    ToDoList
     <div
       class="c1"
     >
-      <div
+      <input
         class="c2"
-      >
-        <input
-          class="c3"
-          placeholder="할 일을 입력해 주세요 :)"
-          value=""
-        />
-        <button
-          class="c4"
-        >
-          ADD
-        </button>
-      </div>
-      <ul
-        class="c5"
-        data-testid="toDoList"
+        placeholder="할 일을 입력해 주세요 :)"
+        value=""
       />
+      <button
+        class="c3"
+      >
+        ADD
+      </button>
     </div>
-  </main>
+    <ul
+      class="c4"
+      data-testid="toDoList"
+    />
+  </div>
 </div>
 `;

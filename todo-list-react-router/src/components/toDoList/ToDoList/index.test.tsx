@@ -52,13 +52,13 @@ describe('<ToDoList/>', () => {
     expect(toDoList.childElementCount).toBe(1);
   });
 
-  it('does not add empty ToDo', () => {
+  it('loads localStorage data', () => {
+    localStorage.setItem('ToDoList', '[{"id":1,"toDo":"ToDo 1"},{"id":2,"toDo":"ToDo 2"},{"id":3,"toDo":"ToDo 3"}]');
     render(<ToDoList />);
 
-    const addButton = screen.getByText('ADD');
-    fireEvent.click(addButton);
-
-    const toDoList = screen.getByTestId('toDoList');
-    expect(toDoList.firstChild).toBeNull();
+    expect(screen.getByText('ToDo 1')).toBeInTheDocument();
+    expect(screen.getByText('ToDo 2')).toBeInTheDocument();
+    expect(screen.getByText('ToDo 3')).toBeInTheDocument();
+    expect(screen.getAllByText('x').length).toBe(3);
   });
 });

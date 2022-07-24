@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
+import Input from '../Input';
+import { ToDoListContext } from 'contexts/ToDoList';
 
-const ToDoInput = ({ value, onChange }: { value: string; onChange: (e: string) => void }) => {
-  return <Input placeholder="할 일을 입력해 주세요 :)" value={value} onChange={(e) => onChange(e.target.value)} />;
+const ToDoInput = () => {
+  const [toDo, setTodo] = useState('');
+  const { addToDo } = useContext(ToDoListContext);
+
+  return (
+    <InputWrapper>
+      <Input placeholder="할 일을 입력해 주세요 :)" value={toDo} onChange={setTodo} />
+      <Button
+        text={'ADD'}
+        onClick={() => {
+          addToDo(toDo);
+          setTodo('');
+        }}
+      />
+    </InputWrapper>
+  );
 };
 
 export default ToDoInput;
 
-const Input = styled.input`
+export const InputWrapper = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  padding: 10px 10px;
-  border-radius: 8px;
-  border: 1px solid #bdbdbd;
-  outline: none;
+  margin: auto;
+
+  input + button {
+    margin-left: 8px;
+  }
 `;
