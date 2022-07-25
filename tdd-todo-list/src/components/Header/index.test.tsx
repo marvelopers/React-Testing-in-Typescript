@@ -16,7 +16,10 @@ describe('Header', () => {
       </MemoryRouter>,
     );
 
-    const title = screen.getByText('CHECK TO DO LIST');
+    const goToAdd = screen.getByText('GO TO ADD');
+    expect(goToAdd).toBeInTheDocument();
+
+    const title = screen.getByText('CHECK YOUR TO DO LIST');
     expect(title).toBeInTheDocument();
   });
 
@@ -28,6 +31,13 @@ describe('Header', () => {
         <Header />
       </MemoryRouter>,
     );
+    const goBack = screen.getByText('GO BACK');
+    expect(goBack).toBeInTheDocument();
+
+    const goToAdd = screen.getByText('GO TO ADD');
+    expect(goToAdd).toBeInTheDocument();
+
+    expect(goBack.getAttribute('href')).toBe('/');
 
     const title = screen.getByText('ADD TO DO');
     expect(title).toBeInTheDocument();
